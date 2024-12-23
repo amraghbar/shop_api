@@ -1,0 +1,11 @@
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\bin\Debug\net7.0\Shop_Infrastructure.deps.json
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\bin\Debug\net7.0\Shop_Infrastructure.dll
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\bin\Debug\net7.0\Shop_Infrastructure.pdb
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.AssemblyInfoInputs.cache
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.AssemblyInfo.cs
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.dll
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\refint\Shop_Infrastructure.dll
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\Shop_Infrastructure.pdb
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net7.0\ref\Shop_Infrastructure.dll
