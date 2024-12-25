@@ -10,6 +10,8 @@ namespace Shop_Core.Interfaces
     {
 
         IItemsRepository ItemsRepository { get; }
+        ICartRepository CartRepository { get; }
+
         Task<int> saveAsync();
 
     }

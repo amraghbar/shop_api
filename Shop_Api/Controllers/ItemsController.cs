@@ -48,8 +48,8 @@ public class ItemsController : ControllerBase
     }
 
 
-    [HttpPut("{id}")]
-    public async Task<ActionResult<ItemsDTO>> UpdateItem(int id, [FromBody] ItemsDTO updatedItemDto)
+    [HttpPut]
+    public async Task<ActionResult<ItemsDTO>> UpdateItem([FromQuery] int id, [FromBody] ItemsDTO updatedItemDto)
     {
         if (updatedItemDto == null)
         {
@@ -70,8 +70,8 @@ public class ItemsController : ControllerBase
         }
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteItem(int id)
+    [HttpDelete]
+    public async Task<IActionResult> DeleteItem([FromQuery]int id)
     {
         try
         {

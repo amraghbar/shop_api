@@ -61,7 +61,6 @@ namespace Shop_Infrastructure.Repositories
             if (newItem == null)
                 throw new ArgumentNullException(nameof(newItem));
 
-            // تحقق من وجود الوحدات والمخازن قبل إضافة العنصر
             foreach (var unit in newItem.ItemsUnits)
             {
                 if (!await appDbContext.Units.AnyAsync(u => u.Name == unit.Units.Name))
@@ -87,6 +86,7 @@ namespace Shop_Infrastructure.Repositories
                 price = newItem.price,
                 ItemUnits = newItem.ItemsUnits.Select(unit => unit.Units.Name).ToList(),
                 Stores = newItem.InvItemStores.Select(store => store.Stores.Name).ToList(),
+
             };
         }
 

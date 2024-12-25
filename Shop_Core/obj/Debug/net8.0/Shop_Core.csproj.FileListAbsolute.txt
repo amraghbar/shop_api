@@ -10,3 +10,4 @@ C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Core\obj\Debug\net8.0\
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Core\obj\Debug\net8.0\refint\Shop_Core.dll
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Core\obj\Debug\net8.0\Shop_Core.pdb
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Core\obj\Debug\net8.0\ref\Shop_Core.dll
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Core\obj\Debug\net8.0\Shop_Core.sourcelink.json

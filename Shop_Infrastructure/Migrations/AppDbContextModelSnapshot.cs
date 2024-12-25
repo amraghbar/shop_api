@@ -441,9 +441,6 @@ namespace Shop_Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CitiesId")
-                        .HasColumnType("int");
-
                     b.Property<int>("City_Id")
                         .HasColumnType("int");
 
@@ -455,8 +452,6 @@ namespace Shop_Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CitiesId");
 
                     b.HasIndex("City_Id");
 
@@ -513,9 +508,6 @@ namespace Shop_Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CitiesId")
                         .HasColumnType("int");
 
                     b.Property<int>("City_Id")
@@ -578,8 +570,6 @@ namespace Shop_Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CitiesId");
 
                     b.HasIndex("City_Id");
 
@@ -807,12 +797,8 @@ namespace Shop_Infrastructure.Migrations
 
             modelBuilder.Entity("Shop_Core.Models.Stores", b =>
                 {
-                    b.HasOne("Shop_Core.Models.Cities", null)
-                        .WithMany("Stores")
-                        .HasForeignKey("CitiesId");
-
                     b.HasOne("Shop_Core.Models.Cities", "Cities")
-                        .WithMany()
+                        .WithMany("Stores")
                         .HasForeignKey("City_Id")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -841,12 +827,8 @@ namespace Shop_Infrastructure.Migrations
 
             modelBuilder.Entity("Shop_Core.Models.Users", b =>
                 {
-                    b.HasOne("Shop_Core.Models.Cities", null)
-                        .WithMany("Users")
-                        .HasForeignKey("CitiesId");
-
                     b.HasOne("Shop_Core.Models.Cities", "Cities")
-                        .WithMany()
+                        .WithMany("Users")
                         .HasForeignKey("City_Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();

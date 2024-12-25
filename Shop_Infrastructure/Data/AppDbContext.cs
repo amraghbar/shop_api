@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shop_Core.Models;
-using System;
 
 namespace Shop_Infrastructure.Data
 {
@@ -32,52 +31,56 @@ namespace Shop_Infrastructure.Data
             builder.Entity<InvoiceDetails>()
                 .HasKey(x => new { x.Invoice_Id, x.Item_Id });
 
-            // تعريف العلاقات بين Users و Cities، Classifications، و Governments
+            // ضبط العلاقة بين Users و Cities
             builder.Entity<Users>()
-                .HasOne(u => u.Cities)  // علاقة مع Cities
-                .WithMany()
+                .HasOne(u => u.Cities)
+                .WithMany(c => c.Users)
                 .HasForeignKey(u => u.City_Id)
-                .OnDelete(DeleteBehavior.Restrict);  // لا يسمح بحذف المدن إذا كان هناك مستخدم مرتبط بها
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // ضبط العلاقة بين Users و Classifications
             builder.Entity<Users>()
-                .HasOne(u => u.Classifications)  // علاقة مع Classifications
+                .HasOne(u => u.Classifications)
                 .WithMany()
                 .HasForeignKey(u => u.Class_Id)
-                .OnDelete(DeleteBehavior.Restrict);  // لا يسمح بحذف التصنيفات إذا كان هناك مستخدم مرتبط بها
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // ضبط العلاقة بين Users و Governments
             builder.Entity<Users>()
-                .HasOne(u => u.Governments)  // علاقة مع Governments
+                .HasOne(u => u.Governments)
                 .WithMany()
                 .HasForeignKey(u => u.Gov_Id)
-                .OnDelete(DeleteBehavior.Restrict);  // لا يسمح بحذف الحكومات إذا كان هناك مستخدم مرتبط بها
-
-            // تحديد العلاقات بين Stores و Cities و Governments
-            builder.Entity<Stores>()
-                .HasOne(s => s.Cities)  // علاقة مع Cities
-                .WithMany()
-                .HasForeignKey(s => s.City_Id)
-                .OnDelete(DeleteBehavior.NoAction);  // تغيير إلى NoAction لتجنب تعدد مسارات الحذف
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Stores>()
-                .HasOne(s => s.Governments)  // علاقة مع Governments
+       .HasOne(s => s.Cities) // العلاقة مع Cities
+       .WithMany(c => c.Stores)
+       .HasForeignKey(s => s.City_Id)
+       .OnDelete(DeleteBehavior.NoAction);
+
+
+            // ضبط العلاقة بين Stores و Governments
+            builder.Entity<Stores>()
+                .HasOne(s => s.Governments)
                 .WithMany()
                 .HasForeignKey(s => s.Gov_Id)
-                .OnDelete(DeleteBehavior.NoAction);  // تغيير إلى NoAction لتجنب تعدد مسارات الحذف
+                .OnDelete(DeleteBehavior.NoAction);
 
-            // تعريف العلاقات بين Items و MainGroup و SubGroup
+            // ضبط العلاقة بين Items و MainGroup
             builder.Entity<Items>()
-                .HasOne(i => i.MainGroup)  // علاقة مع MainGroup
+                .HasOne(i => i.MainGroup)
                 .WithMany()
                 .HasForeignKey(i => i.MG_Id)
-                .OnDelete(DeleteBehavior.NoAction);  // تغيير إلى NoAction لتجنب تعدد مسارات الحذف
+                .OnDelete(DeleteBehavior.NoAction);
 
+            // ضبط العلاقة بين Items و SubGroup
             builder.Entity<Items>()
-                .HasOne(i => i.SubGroup)  // علاقة مع SubGroup
+                .HasOne(i => i.SubGroup)
                 .WithMany()
                 .HasForeignKey(i => i.Sub_Id)
-                .OnDelete(DeleteBehavior.NoAction);  // تغيير إلى NoAction لتجنب تعدد مسارات الحذف
+                .OnDelete(DeleteBehavior.NoAction);
 
-            // تعريف باقي العلاقات مع الـ DbSets الأخرى حسب الحاجة
+            
         }
 
         // تعريف DbSets لجميع الكيانات
@@ -96,6 +99,5 @@ namespace Shop_Infrastructure.Data
         public DbSet<ItemsUnits> ItemsUnits { get; set; }
         public DbSet<CustomerStores> CustomerStores { get; set; }
         public DbSet<Stores> Stores { get; set; }
-
     }
 }

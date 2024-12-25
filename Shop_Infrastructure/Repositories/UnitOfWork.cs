@@ -19,13 +19,17 @@ namespace Shop_Infrastructure.Repositories
 
         // تعريف الخاصية IAccountRepository
 
-        public IItemsRepository ItemsRepository { get; } 
+        public IItemsRepository ItemsRepository { get; }
+        public ICartRepository CartRepository { get; }
+
 
         public UnitOfWork(AppDbContext appContext, UserManager<Users> userManager, SignInManager<Users> signInManager, IConfiguration configuration, ILogger<AccountRepository> logger)
         {
             this.appContext = appContext;
             this.logger = logger;
             ItemsRepository = new ItemsRepository(appContext);
+            CartRepository = new CartRepository(appContext);
+
         }
 
         public void Dispose()
