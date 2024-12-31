@@ -111,5 +111,22 @@ namespace Shop_Infrastructure.Controllers
             return BadRequest(result); // Error during password reset
         }
 
+        // GET api/account/confirm-email?email=email&token=token
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail([FromQuery] string email, [FromQuery] string token)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            var result = await accountRepository.ConfirmAccountAsync(email, token);
+            if (result == "Account confirmed successfully.")
+            {
+                return Ok(result); // Email confirmed successfully
+            }
+
+            return BadRequest(result); // Failed to confirm email
+        }
     }
 }

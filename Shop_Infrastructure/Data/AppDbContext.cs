@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shop_Core.Models;
+using System.Reflection.Emit;
 
 namespace Shop_Infrastructure.Data
 {
@@ -30,7 +31,8 @@ namespace Shop_Infrastructure.Data
 
             builder.Entity<InvoiceDetails>()
                 .HasKey(x => new { x.Invoice_Id, x.Item_Id });
-
+            builder.Entity<InvItemStores>()
+        .HasKey(e => new { e.Item_Id, e.Store_Id });
             // ضبط العلاقة بين Users و Cities
             builder.Entity<Users>()
                 .HasOne(u => u.Cities)
@@ -99,5 +101,7 @@ namespace Shop_Infrastructure.Data
         public DbSet<ItemsUnits> ItemsUnits { get; set; }
         public DbSet<CustomerStores> CustomerStores { get; set; }
         public DbSet<Stores> Stores { get; set; }
+        public DbSet<Order> orders { get; set; }
+        public DbSet<OrderDetail> orderDetails { get; set; }
     }
 }

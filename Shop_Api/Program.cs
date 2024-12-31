@@ -1,10 +1,11 @@
-
+﻿
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
 using Shop_Infrastructure.Data;
 using Shop_Infrastructure.Repositories;
+using System.Text.Json.Serialization;
 
 namespace Shop_Api
 {
@@ -35,7 +36,12 @@ namespace Shop_Api
             builder.Services.AddScoped<IEmailService, EmailService>();
 
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -60,6 +66,11 @@ namespace Shop_Api
 
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+            });
 
             app.MapControllers();
 

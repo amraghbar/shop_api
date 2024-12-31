@@ -10,8 +10,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.EntityFrameworkCore;
-using Shop_Infrastructure.Data;
 using Shop_Core.DTOS.Account;
 
 namespace Shop_Infrastructure.Repositories
@@ -33,13 +31,39 @@ namespace Shop_Infrastructure.Repositories
             this.emailService = emailService;
         }
 
+        // تسجيل المستخدم
         public async Task<string> RegisterAsync(Users user, string password)
         {
             var result = await userManager.CreateAsync(user, password);
             if (result.Succeeded)
             {
-                logger.LogInformation($"User {user.UserName} registered successfully.");
-                return "User Registered Successfully";
+                // إنشاء رمز تأكيد البريد الإلكتروني
+                var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                var confirmationLink = $"https://yourdomain.com/confirm-account?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
+
+                var emailModel = new Email
+                {
+                    Subject = "Please Confirm Your Email Address",
+                    Body = $@"
+                        <p>Click the link below to confirm your account:</p>
+
+                        <p><a href='{confirmationLink}'>Confirm Account</a></p>
+                        <p><b>Confirmation Token:</b> {token}</p>
+
+                    ",
+                    Recivers = user.Email
+                };
+
+                try
+                {
+                    emailService.SendEmail(emailModel);
+                    return "User Registered Successfully. Please check your email for the confirmation link.";
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError($"Error sending confirmation email: {ex.Message}");
+                    return "User registered successfully, but failed to send confirmation email.";
+                }
             }
 
             var errorMessages = result.Errors.Select(error => error.Description).ToList();
@@ -47,27 +71,7 @@ namespace Shop_Infrastructure.Repositories
             return string.Join(", ", errorMessages);
         }
 
-        public async Task<string> ChangePasswordAsync(string email, string oldPassword, string newPassword)
-        {
-            var user = await userManager.FindByEmailAsync(email);
-            if (user == null)
-            {
-                logger.LogWarning($"User with email {email} not found.");
-                return "User not found.";
-            }
-
-            var result = await userManager.ChangePasswordAsync(user, oldPassword, newPassword);
-            if (result.Succeeded)
-            {
-                logger.LogInformation($"Password changed successfully for {email}.");
-                return "Password changed successfully.";
-            }
-
-            var errorMessages = result.Errors.Select(error => error.Description).ToList();
-            logger.LogWarning($"Password change failed for {email}: {string.Join(", ", errorMessages)}");
-            return string.Join(", ", errorMessages);
-        }
-
+        // تسجيل الدخول
         public async Task<string> LoginAsync(string username, string password)
         {
             var user = await userManager.FindByNameAsync(username);
@@ -75,6 +79,12 @@ namespace Shop_Infrastructure.Repositories
             {
                 logger.LogWarning($"Login attempt failed: Invalid username {username}");
                 return "Invalid Username or Password";
+            }
+
+            // التحقق من حالة تأكيد البريد الإلكتروني
+            if (!user.EmailConfirmed)
+            {
+                return "Your account is not confirmed. Please confirm your account via the email link.";
             }
 
             var result = await signInManager.PasswordSignInAsync(user, password, false, false);
@@ -89,25 +99,20 @@ namespace Shop_Infrastructure.Repositories
             var tokenName = "JWTToken";
             var loginProvider = "YourApp";
 
-            // التحقق إذا كان التوكن موجودًا بالفعل
             var existingToken = await userManager.GetAuthenticationTokenAsync(user, loginProvider, tokenName);
 
             if (!string.IsNullOrEmpty(existingToken))
             {
-                // إذا كان التوكن موجودًا، نعيد استخدامه
                 logger.LogInformation($"Reusing existing token for user {username}.");
                 return existingToken;
             }
 
-            // إذا لم يكن التوكن موجودًا، يتم إنشاء توكن جديد وتخزينه
             var newToken = GenerateToken(user);
             await userManager.SetAuthenticationTokenAsync(user, loginProvider, tokenName, newToken);
 
             logger.LogInformation($"Generated new token for user {username}.");
             return newToken;
         }
-
-
 
         private string GenerateToken(Users user)
         {
@@ -131,34 +136,77 @@ namespace Shop_Infrastructure.Repositories
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        public async Task<string> ConfirmAccountAsync(string email, string confirmationToken)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return $"User with email {email} not found.";
+            }
+
+            var result = await userManager.ConfirmEmailAsync(user, confirmationToken);
+            if (!result.Succeeded)
+            {
+                return $"Invalid confirmation token for user with email {email}. Please check the token or request a new one."; 
+            }
+
+            user.EmailConfirmed = true;
+            var updateResult = await userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                return $"Failed to update user with email {email}. Please try again.";
+            }
+
+            return $"Account for {email} confirmed successfully. Token used: {confirmationToken}"; 
+        }
+
+        public async Task<string> ChangePasswordAsync(string email, string oldPassword, string newPassword)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                logger.LogWarning($"User with email {email} not found.");
+                return "User not found.";
+            }
+
+            var result = await userManager.ChangePasswordAsync(user, oldPassword, newPassword);
+            if (result.Succeeded)
+            {
+                logger.LogInformation($"Password changed successfully for {email}.");
+                return "Password changed successfully.";
+            }
+
+            var errorMessages = result.Errors.Select(error => error.Description).ToList();
+            logger.LogWarning($"Password change failed for {email}: {string.Join(", ", errorMessages)}");
+            return string.Join(", ", errorMessages);
+        }
+
+        // استعادة كلمة المرور
         public async Task<string> ForgotPasswordAsync(string email)
         {
             var user = await userManager.FindByEmailAsync(email);
 
             if (user == null)
             {
-                // الرد العام لتجنب الكشف عن وجود المستخدم
                 return "If this email is associated with an account, a password reset link has been sent.";
             }
 
-            // إنشاء توكن جديد لإعادة تعيين كلمة المرور
+            // إنشاء رابط لإعادة تعيين كلمة المرور
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
-
-            // إنشاء الرابط
             var resetLink = $"https://yourdomain.com/reset-password?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(email)}";
 
-            // إضافة التوكن إلى نص الرسالة (لغرض الاختبار فقط)
+            // إرسال رسالة بريد إلكتروني تحتوي على التوكين
             var emailModel = new Email
             {
                 Subject = "Password Reset Request",
                 Body = $@"
-            <p>Click the link below to reset your password:</p>
-            <p><a href='{resetLink}'>Reset Password</a></p>
-            <p>For testing purposes, here is your token:</p>
-            <p><code>{token}</code></p>
-        ",
+        <p>Click the link below to reset your password:</p>
+        <p><a href='{resetLink}'>Reset Password</a></p>
+        <p><strong>Your reset token: {token}</strong></p>  <!-- إضافة التوكين هنا -->
+    ",
                 Recivers = email
             };
+
 
             try
             {
@@ -167,12 +215,12 @@ namespace Shop_Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error sending email: {ex.Message}");
+                logger.LogError($"Error sending email: {ex.Message}");
                 return "Failed to send password reset email.";
             }
         }
 
-
+        // إعادة تعيين كلمة المرور
         public async Task<string> ResetPasswordAsync(ResetPasswordModel resetPasswordModel)
         {
             if (resetPasswordModel.NewPassword != resetPasswordModel.ConfirmPassword)
@@ -196,9 +244,5 @@ namespace Shop_Infrastructure.Repositories
             var errors = string.Join(", ", result.Errors.Select(e => e.Description));
             return $"Password reset failed: {errors}";
         }
-
-
-
-
     }
 }

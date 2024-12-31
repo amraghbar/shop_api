@@ -267,6 +267,9 @@ namespace Shop_Infrastructure.Migrations
                     b.Property<double>("NetPrice")
                         .HasColumnType("float");
 
+                    b.Property<int>("Order_Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("Payment_Type")
                         .HasColumnType("int");
 
@@ -288,6 +291,8 @@ namespace Shop_Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Cus_Id");
+
+                    b.HasIndex("Order_Id");
 
                     b.ToTable("Invoice");
                 });
@@ -399,6 +404,81 @@ namespace Shop_Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MainGroup");
+                });
+
+            modelBuilder.Entity("Shop_Core.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AddressLine1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("orders");
+                });
+
+            modelBuilder.Entity("Shop_Core.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("orderDetails");
                 });
 
             modelBuilder.Entity("Shop_Core.Models.ShoppingCartItems", b =>
@@ -700,6 +780,14 @@ namespace Shop_Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Shop_Core.Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("Order_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
                     b.Navigation("Users");
                 });
 
@@ -766,6 +854,25 @@ namespace Shop_Infrastructure.Migrations
                     b.Navigation("Items");
 
                     b.Navigation("Units");
+                });
+
+            modelBuilder.Entity("Shop_Core.Models.OrderDetail", b =>
+                {
+                    b.HasOne("Shop_Core.Models.Items", "Items")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shop_Core.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Items");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Shop_Core.Models.ShoppingCartItems", b =>
@@ -896,6 +1003,11 @@ namespace Shop_Infrastructure.Migrations
                     b.Navigation("Items");
 
                     b.Navigation("SubGroup");
+                });
+
+            modelBuilder.Entity("Shop_Core.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("Shop_Core.Models.Stores", b =>

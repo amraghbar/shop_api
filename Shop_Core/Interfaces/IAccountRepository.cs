@@ -10,5 +10,7 @@ namespace Shop_Core.Interfaces
         Task<string> ChangePasswordAsync(string email, string oldPasswrod, string newPassword);
         Task<string> ForgotPasswordAsync(string email); 
         Task<string> ResetPasswordAsync(ResetPasswordModel resetPasswordModel);
+        Task<string> ConfirmAccountAsync(string email, string confirmationToken);
+
     }
 }

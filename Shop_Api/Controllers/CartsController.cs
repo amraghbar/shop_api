@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop_Api.HF;
-using Shop_Core.DTOS.Items;
+using Shop_Core.DTOS.Cart;
 using Shop_Core.Interfaces;
 
 namespace Shop_Api.Controllers
@@ -24,7 +24,7 @@ namespace Shop_Api.Controllers
 
             if (string.IsNullOrEmpty(token))
             {
-                return Unauthorized("token is missing");
+                return Unauthorized("Token is missing");
             }
 
             try
@@ -32,8 +32,16 @@ namespace Shop_Api.Controllers
                 var userId = ExtractClaims.EtractUserId(token);
                 if (!userId.HasValue)
                 {
-                    return Unauthorized("invalid user token");
+                    return Unauthorized("Invalid user token");
                 }
+
+                // تحقق من توفر الكمية المطلوبة للعنصر المحدد
+                var availableQuantity = await unitOfWork.ItemsRepository.GetAvailableQuantityAsync(dto.ItemCode,dto.storeId);
+                if (availableQuantity < dto.Quantity)
+                {
+                    return BadRequest($"Only {availableQuantity} items are available for Item ID: {dto.ItemCode}");
+                }
+
                 var result = await unitOfWork.CartRepository.AddBulkQuantityToCartAsync(dto, userId);
                 if (result == "Item added to cart successfully")
                 {
@@ -46,9 +54,11 @@ namespace Shop_Api.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized("invalid Token: " + ex.Message);
+                return Unauthorized("Invalid Token: " + ex.Message);
             }
         }
+
+
 
         [HttpPost("add/one_to_cart")]
         public async Task<IActionResult> AddOneItemToCart([FromBody] CartItemDTO dto)

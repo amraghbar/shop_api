@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop_Core.DTOS.Items;
+using Shop_Core.DTOS.Cart;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
 using Shop_Infrastructure.Data;
@@ -109,6 +109,7 @@ namespace Shop_Infrastructure.Repositories
                             .ToListAsync();
             var itemDto = cartItems.Select(x => new UserCartItemsDTO
             {
+                ItemId=x.Item_Id,
                 name = x.Items.Name,
                 price = x.Items.price,
                 ItemUnit = x.Items.ItemsUnits

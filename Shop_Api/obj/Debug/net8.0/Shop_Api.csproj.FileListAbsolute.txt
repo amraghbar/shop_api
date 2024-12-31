@@ -137,6 +137,7 @@ C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\S
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.csproj.CoreCompileInputs.cache
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.sourcelink.json
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\staticwebassets\msbuild.Shop_Api.Microsoft.AspNetCore.StaticWebAssets.props
@@ -151,4 +152,3 @@ C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\r
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.pdb
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.genruntimeconfig.cache
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\ref\Shop_Api.dll
-C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Api\obj\Debug\net8.0\Shop_Api.sourcelink.json

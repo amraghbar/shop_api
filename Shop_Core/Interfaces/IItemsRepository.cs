@@ -13,5 +13,7 @@ namespace Shop_Core.Interfaces
         Task<ItemsDTO> AddItemAsync(Items newItem);
         Task<ItemsDTO> UpdateItemAsync(int id, Items updatedItem);
         Task<bool> DeleteItemAsync(int id);
+        Task<int> GetAvailableQuantityAsync(int itemId, int storeId);
+
     }
 }

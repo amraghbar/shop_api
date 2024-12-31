@@ -9,10 +9,10 @@ C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Deb
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.AssemblyInfoInputs.cache
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.AssemblyInfo.cs
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.sourcelink.json
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Inf.09F9F5FE.Up2Date
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.dll
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\refint\Shop_Infrastructure.dll
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.pdb
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.genruntimeconfig.cache
 C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\ref\Shop_Infrastructure.dll
-C:\Users\USER-Q\Documents\asp\api\Project Final\Shop\Shop_Infrastructure\obj\Debug\net8.0\Shop_Infrastructure.sourcelink.json

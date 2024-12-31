@@ -19,6 +19,12 @@ public class ItemsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<PagedResponse<ItemsDTO>>> GetItems()
     {
+        var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        if (string.IsNullOrEmpty(token))
+        {
+            return Unauthorized("token is missing");
+        }
         var items = await unitOfWork.ItemsRepository.GetItemsAsync();
 
         if (items == null )
@@ -31,6 +37,13 @@ public class ItemsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<ItemsDTO>> AddItem([FromBody] ItemsDTO newItemDto)
     {
+        var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        if (string.IsNullOrEmpty(token))
+        {
+            return Unauthorized("token is missing");
+        }
+
         if (newItemDto == null)
         {
             return BadRequest(new { message = "Invalid item data." });
@@ -47,10 +60,15 @@ public class ItemsController : ControllerBase
         return CreatedAtAction(nameof(GetItems), new { id = addedItem.Id }, addedItem);
     }
 
-
     [HttpPut]
     public async Task<ActionResult<ItemsDTO>> UpdateItem([FromQuery] int id, [FromBody] ItemsDTO updatedItemDto)
     {
+        var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        if (string.IsNullOrEmpty(token))
+        {
+            return Unauthorized("token is missing");
+        }
         if (updatedItemDto == null)
         {
             return BadRequest(new { message = "Invalid updated item data." });
@@ -73,8 +91,15 @@ public class ItemsController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> DeleteItem([FromQuery]int id)
     {
+        var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        if (string.IsNullOrEmpty(token))
+        {
+            return Unauthorized("token is missing");
+        }
         try
         {
+
             var result = await unitOfWork.ItemsRepository.DeleteItemAsync(id);
             await unitOfWork.saveAsync();
             return NoContent();
@@ -95,7 +120,12 @@ public class ItemsController : ControllerBase
             MG_Id = dto.MG_Id,
             Sub_Id = dto.Sub_Id,
             ItemsUnits = dto.ItemUnits?.Select(unitName => new ItemsUnits { Units = new Units { Name = unitName } }).ToList(),
-            InvItemStores = dto.Stores?.Select(storeName => new InvItemStores { Stores = new Stores { Name = storeName } }).ToList(),
+            InvItemStores = dto.Stores?.Select(storeDto => new InvItemStores
+            {
+                Balance = storeDto.Balance,
+                Stores = new Stores { Name = storeDto.StoreName  }
+
+            }).ToList(),
         };
     }
 

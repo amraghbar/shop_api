@@ -22,6 +22,17 @@ namespace Shop_Infrastructure.Repositories
         public IItemsRepository ItemsRepository { get; }
         public ICartRepository CartRepository { get; }
 
+        public IUnitRepository UnitRepository { get; }
+
+        public IStoreRepository StoreRepository { get; }
+
+        public IOrderRepository OrderRepository { get; }
+
+        public IMainGroupRepository MainGroupRepository { get; }
+
+        public ISubGroupRepository SubGroupRepository { get; }
+
+        public IInvoiceRepository InvoiceRepository { get; }
 
         public UnitOfWork(AppDbContext appContext, UserManager<Users> userManager, SignInManager<Users> signInManager, IConfiguration configuration, ILogger<AccountRepository> logger)
         {
@@ -29,7 +40,12 @@ namespace Shop_Infrastructure.Repositories
             this.logger = logger;
             ItemsRepository = new ItemsRepository(appContext);
             CartRepository = new CartRepository(appContext);
-
+            UnitRepository = new UnitRepository(appContext);
+            StoreRepository= new StoreRepository(appContext);
+            OrderRepository = new OrderRepository(appContext);
+            MainGroupRepository = new MainGroupRepository(appContext);
+            SubGroupRepository = new SubGroupRepository(appContext);
+            InvoiceRepository= new InvoiceRepository(appContext);   
         }
 
         public void Dispose()

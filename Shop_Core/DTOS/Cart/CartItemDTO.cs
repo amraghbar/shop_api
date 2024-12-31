@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop_Core.DTOS.Items
+namespace Shop_Core.DTOS.Cart
 {
     public class CartItemDTO
     {

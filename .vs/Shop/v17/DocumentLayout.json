@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_api\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|solutionrelative:shop_api\\controllers\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_infrastructure\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|solutionrelative:shop_infrastructure\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_api\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|solutionrelative:shop_api\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +31,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ItemsController.cs",
-              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\ItemsController.cs",
-              "RelativeDocumentMoniker": "Shop_Api\\Controllers\\ItemsController.cs",
-              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\ItemsController.cs",
-              "RelativeToolTip": "Shop_Api\\Controllers\\ItemsController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAvwDMAAABDAAAA",
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IEmailService.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\Interfaces\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IEmailService.cs",
+              "RelativeToolTip": "Shop_Core\\Interfaces\\IEmailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T00:44:28.986Z",
+              "WhenOpened": "2024-12-31T01:45:29.521Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "Shop_Infrastructure\\Repositories\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\AccountRepository.cs",
+              "RelativeToolTip": "Shop_Infrastructure\\Repositories\\AccountRepository.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAgwDcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T01:19:52.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\Interfaces\\IAccountRepository.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IAccountRepository.cs",
+              "RelativeToolTip": "Shop_Core\\Interfaces\\IAccountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T01:19:22.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\AccountsController.cs",
+              "RelativeDocumentMoniker": "Shop_Api\\Controllers\\AccountsController.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\AccountsController.cs",
+              "RelativeToolTip": "Shop_Api\\Controllers\\AccountsController.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAYwHIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T01:19:11.717Z"
             }
           ]
         }

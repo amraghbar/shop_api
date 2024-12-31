@@ -15,7 +15,9 @@ namespace Shop_Core.DTOS.Items
         public int MG_Id { get; set; }
         public int Sub_Id { get; set; }
         public List<string> ItemUnits { get; set; }
-        public List<string> Stores { get; set; }
 
+        // تعديل لتضمين تفاصيل المخازن
+        public List<StoreDTO> Stores { get; set; }
     }
 }
+
