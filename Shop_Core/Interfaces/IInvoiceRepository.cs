@@ -1,4 +1,4 @@
-﻿using Shop_Core.DTOS;
+﻿using Shop_Core.DTOS.Invoice;
 using Shop_Core.Models;
 using System;
 using System.Collections.Generic;

@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_infrastructure\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|solutionrelative:shop_infrastructure\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_infrastructure\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD4CB173-855D-49C6-9665-5DC98F539FB4}|Shop_Infrastructure\\Shop_Infrastructure.csproj|solutionrelative:shop_infrastructure\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\dtos\\order\\itemord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\dtos\\order\\itemord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_api\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|solutionrelative:shop_api\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\dtos\\order\\orderdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\dtos\\order\\orderdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\dtos\\order\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\dtos\\order\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67641C2A-4612-4208-A237-0F7A6854415A}|Shop_Api\\Shop_Api.csproj|solutionrelative:shop_api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\dtos\\order\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\dtos\\order\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|c:\\users\\user-q\\documents\\asp\\api\\project final\\shop\\shop_core\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{663CFE70-1E04-42B0-83E1-0E735ADDBA6B}|Shop_Core\\Shop_Core.csproj|solutionrelative:shop_core\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +38,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IEmailService.cs",
-              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IEmailService.cs",
-              "RelativeDocumentMoniker": "Shop_Core\\Interfaces\\IEmailService.cs",
-              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IEmailService.cs",
-              "RelativeToolTip": "Shop_Core\\Interfaces\\IEmailService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "ItemOrD.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\ItemOrD.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\DTOS\\Order\\ItemOrD.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\ItemOrD.cs",
+              "RelativeToolTip": "Shop_Core\\DTOS\\Order\\ItemOrD.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:45:29.521Z",
+              "WhenOpened": "2025-01-01T18:53:21.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "Shop_Infrastructure\\Repositories\\AccountRepository.cs",
-              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\AccountRepository.cs",
-              "RelativeToolTip": "Shop_Infrastructure\\Repositories\\AccountRepository.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAgwDcAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "OrderDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDTOs.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\DTOS\\Order\\OrderDTOs.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDTOs.cs",
+              "RelativeToolTip": "Shop_Core\\DTOS\\Order\\OrderDTOs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:19:52.219Z",
+              "WhenOpened": "2025-01-01T18:45:26.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "Shop_Core\\Interfaces\\IAccountRepository.cs",
-              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IAccountRepository.cs",
-              "RelativeToolTip": "Shop_Core\\Interfaces\\IAccountRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Title": "OrderDto.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDto.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\DTOS\\Order\\OrderDto.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDto.cs",
+              "RelativeToolTip": "Shop_Core\\DTOS\\Order\\OrderDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBMAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:19:22.336Z"
+              "WhenOpened": "2025-01-01T18:45:23.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountsController.cs",
-              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\AccountsController.cs",
-              "RelativeDocumentMoniker": "Shop_Api\\Controllers\\AccountsController.cs",
-              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\AccountsController.cs",
-              "RelativeToolTip": "Shop_Api\\Controllers\\AccountsController.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAYwHIAAAAiAAAA",
+              "DocumentIndex": 5,
+              "Title": "OrderDetailDto.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDetailDto.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\DTOS\\Order\\OrderDetailDto.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\DTOS\\Order\\OrderDetailDto.cs",
+              "RelativeToolTip": "Shop_Core\\DTOS\\Order\\OrderDetailDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:19:11.717Z"
+              "WhenOpened": "2025-01-01T18:45:19.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "Shop_Infrastructure\\Repositories\\OrderRepository.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Infrastructure\\Repositories\\OrderRepository.cs",
+              "RelativeToolTip": "Shop_Infrastructure\\Repositories\\OrderRepository.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAcwGsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T17:36:09.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Shop_Core\\Interfaces\\IOrderRepository.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Core\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "Shop_Core\\Interfaces\\IOrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T16:38:22.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Shop_Api\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\USER-Q\\Documents\\asp\\api\\Project Final\\Shop\\Shop_Api\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Shop_Api\\Controllers\\OrdersController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAcwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T15:57:58.541Z",
+              "EditorCaption": ""
             }
           ]
         }

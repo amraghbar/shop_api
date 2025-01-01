@@ -228,10 +228,10 @@ namespace Shop_Infrastructure.Migrations
 
             modelBuilder.Entity("Shop_Core.Models.InvItemStores", b =>
                 {
-                    b.Property<int>("Store_Id")
+                    b.Property<int>("Item_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Item_Id")
+                    b.Property<int>("Store_Id")
                         .HasColumnType("int");
 
                     b.Property<double>("Balance")
@@ -243,9 +243,9 @@ namespace Shop_Infrastructure.Migrations
                     b.Property<double>("ReservedQuantity")
                         .HasColumnType("float");
 
-                    b.HasKey("Store_Id", "Item_Id");
+                    b.HasKey("Item_Id", "Store_Id");
 
-                    b.HasIndex("Item_Id");
+                    b.HasIndex("Store_Id");
 
                     b.ToTable("InvItemStores");
                 });

@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shop_Core.DTOS.Items;
+using Shop_Core.DTOS;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
 using Shop_Infrastructure.Data;
@@ -6,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Shop_Core.DTOS.Order;
 
 namespace Shop_Infrastructure.Repositories
 {
@@ -42,23 +45,73 @@ namespace Shop_Infrastructure.Repositories
             return order;
         }
 
-
-        public async Task<Order> GetOrderByIdAsync(int orderId, int userId)
+        public async Task<OrderDTOs> GetOrderByIdAsync(int orderId, int userId)
         {
             return await _context.orders
-                .Include(o => o.OrderDetails)
-                    .ThenInclude(od => od.Items) 
                 .Where(o => o.Id == orderId && o.UserId == userId)
+                .Select(o => new OrderDTOs
+                {
+                    Id = o.Id,
+                    UserId = o.UserId,
+                    OrderDate = o.OrderDate,
+                    TotalAmount = o.TotalAmount,
+                    AddressLine1 = o.AddressLine1,
+                    City = o.City,
+                    State = o.State,
+                    PostalCode = o.PostalCode,
+                    Country = o.Country,
+                    Status = o.Status,
+                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDto
+                    {
+                        Id = od.Id,
+                        OrderId = od.OrderId,
+                        ItemId = od.ItemId,
+                        Quantity = (int)od.Quantity,
+                        Price = od.Price,
+                        Total = od.Total,
+                        Items = new ItemOrD
+                        {
+                            Id = od.Items.Id,
+                            price = od.Items.price
+                        }
+                    }).ToList()
+                })
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
 
 
-        public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(int userId)
+        public async Task<IEnumerable<OrderDTOs>> GetOrdersByUserIdAsync(int userId)
         {
             return await _context.orders
                 .Where(o => o.UserId == userId)
-                .Include(o => o.OrderDetails)
+                .Select(o => new OrderDTOs
+                {
+                    Id = o.Id,
+                    UserId = o.UserId,
+                    OrderDate = o.OrderDate,
+                    TotalAmount = o.TotalAmount,
+                    AddressLine1 = o.AddressLine1,
+                    City = o.City,
+                    State = o.State,
+                    PostalCode = o.PostalCode,
+                    Country = o.Country,
+                    Status = o.Status,
+                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDto
+                    {
+                        Id = od.Id,
+                        OrderId = od.OrderId,
+                        ItemId = od.ItemId,
+                        Quantity = (int)od.Quantity,
+                        Price = od.Price,
+                        Total = od.Total,
+                        Items = new ItemOrD
+                        {
+                            Id = od.Items.Id,
+                            price = od.Items.price
+                        }
+                    }).ToList()
+                })
                 .AsNoTracking()
                 .ToListAsync();
         }

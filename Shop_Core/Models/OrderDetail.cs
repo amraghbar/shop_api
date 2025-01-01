@@ -18,6 +18,7 @@ namespace Shop_Core.Models
         public double Quantity { get; set; } 
         public decimal Price { get; set; } 
         public decimal Total => (decimal)Quantity * Price;
+
         public Order Order { get; set; }
         public Items Items { get; set; }
     }

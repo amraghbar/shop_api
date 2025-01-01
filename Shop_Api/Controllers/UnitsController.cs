@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shop_Api.HF;
 using Shop_Core.DTOS;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
@@ -28,6 +29,11 @@ namespace Shop_Api.Controllers
             {
                 return Unauthorized("token is missing");
             }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
+            }
             var units = unitOfWork.UnitRepository.GetAll();
             return Ok(units);
         }
@@ -40,6 +46,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var unit = unitOfWork.UnitRepository.GetById(id);
             if (unit == null)
@@ -58,6 +69,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             if (unit == null || string.IsNullOrEmpty(unit.Name))
             {
@@ -83,6 +99,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var existingUnit = unitOfWork.UnitRepository.GetById(id);
 
@@ -113,6 +134,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var existingUnit = unitOfWork.UnitRepository.GetById(id);
             if (existingUnit == null)

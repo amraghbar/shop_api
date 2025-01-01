@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop_Core.DTOS;
+using Shop_Core.DTOS.Invoice;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
 using Shop_Infrastructure.Data;

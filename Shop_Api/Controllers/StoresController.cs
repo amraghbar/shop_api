@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shop_Api.HF;
 using Shop_Core.DTOS.Store;
 using Shop_Core.Interfaces;
 using Shop_Infrastructure.Repositories;
@@ -26,6 +27,11 @@ namespace Shop_Api.Controllers
             {
                 return Unauthorized("token is missing");
             }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
+            }
 
             var stores = await unitOfWork.StoreRepository.GetAllStoresAsync();
             return Ok(stores);
@@ -39,6 +45,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var store = await unitOfWork.StoreRepository.GetStoreByIdAsync(id);
 
@@ -57,6 +68,11 @@ namespace Shop_Api.Controllers
             {
                 return Unauthorized("token is missing");
             }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
+            }
             await unitOfWork.StoreRepository.AddStoreAsync(storeDto);
             return CreatedAtAction(nameof(GetStore), new { id = storeDto.Name }, storeDto);
         }
@@ -69,6 +85,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var result = await unitOfWork.StoreRepository.UpdateStoreAsync(id, storeDto);
 
@@ -86,6 +107,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var result = await unitOfWork.StoreRepository.DeleteStoreAsync(id);
 

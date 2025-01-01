@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shop_Api.HF;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
 using Shop_Infrastructure.Repositories;
@@ -18,7 +19,6 @@ namespace Shop_Api.Controllers
             this.unitOfWork = unitOfWork;
         }
 
-        // إنشاء الفاتورة بناءً على الطلب
         [HttpPost("create-from-order")]
         public async Task<IActionResult> CreateInvoiceFromOrderAsync([FromQuery] int orderId)
         {
@@ -27,6 +27,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("Token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var result = await unitOfWork.InvoiceRepository.CreateInvoiceFromOrderAsync(orderId);
 
@@ -38,7 +43,6 @@ namespace Shop_Api.Controllers
             return BadRequest(new { message = result });
         }
 
-        // استرجاع تفاصيل الفاتورة
         [HttpGet]
         public async Task<IActionResult> GetInvoiceReceipt([FromQuery]int customerId, [FromQuery] int invoiceId)
         {
@@ -47,6 +51,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("Token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var receipt = await unitOfWork.InvoiceRepository.GetInvoiceReciept(customerId, invoiceId);
 
@@ -69,6 +78,11 @@ namespace Shop_Api.Controllers
             {
                 return Unauthorized("Token is missing");
             }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
+            }
             var result = await unitOfWork.InvoiceRepository.UpdateInvoiceStatusAsync(invoiceId, isPosted, isReviewed, isClosed);
 
             if (result.Contains("not found"))
@@ -87,6 +101,11 @@ namespace Shop_Api.Controllers
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized("Token is missing");
+            }
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
             }
             var invoices = await unitOfWork.InvoiceRepository.GetInvoicesByCustomerIdAsync(customerId);
 

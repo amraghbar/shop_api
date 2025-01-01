@@ -39,7 +39,7 @@ namespace Shop_Infrastructure.Repositories
             {
                 // إنشاء رمز تأكيد البريد الإلكتروني
                 var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                var confirmationLink = $"https://yourdomain.com/confirm-account?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
+                var confirmationLink = $"https://yourdomain.com/confirm-account?token={(token)}&email={(user.Email)}";
 
                 var emailModel = new Email
                 {

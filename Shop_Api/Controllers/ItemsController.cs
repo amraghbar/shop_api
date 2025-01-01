@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Shop_Api.HF;
 using Shop_Core.DTOS.Items;
 using Shop_Core.Interfaces;
 using Shop_Core.Models;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ItemsController : ControllerBase
 {
     private readonly IUnitOfWork unitOfWork;
@@ -16,6 +19,8 @@ public class ItemsController : ControllerBase
         this.unitOfWork = unitOfWork;
     }
 
+
+
     [HttpGet]
     public async Task<ActionResult<PagedResponse<ItemsDTO>>> GetItems()
     {
@@ -24,6 +29,11 @@ public class ItemsController : ControllerBase
         if (string.IsNullOrEmpty(token))
         {
             return Unauthorized("token is missing");
+        }
+        var userId = ExtractClaims.EtractUserId(token);
+        if (!userId.HasValue)
+        {
+            return Unauthorized("invalid user token");
         }
         var items = await unitOfWork.ItemsRepository.GetItemsAsync();
 
@@ -43,7 +53,11 @@ public class ItemsController : ControllerBase
         {
             return Unauthorized("token is missing");
         }
-
+        var userId = ExtractClaims.EtractUserId(token);
+        if (!userId.HasValue)
+        {
+            return Unauthorized("invalid user token");
+        }
         if (newItemDto == null)
         {
             return BadRequest(new { message = "Invalid item data." });
@@ -68,6 +82,11 @@ public class ItemsController : ControllerBase
         if (string.IsNullOrEmpty(token))
         {
             return Unauthorized("token is missing");
+        }
+        var userId = ExtractClaims.EtractUserId(token);
+        if (!userId.HasValue)
+        {
+            return Unauthorized("invalid user token");
         }
         if (updatedItemDto == null)
         {
@@ -99,6 +118,11 @@ public class ItemsController : ControllerBase
         }
         try
         {
+            var userId = ExtractClaims.EtractUserId(token);
+            if (!userId.HasValue)
+            {
+                return Unauthorized("invalid user token");
+            }
 
             var result = await unitOfWork.ItemsRepository.DeleteItemAsync(id);
             await unitOfWork.saveAsync();
